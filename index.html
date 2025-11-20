@@ -181,7 +181,7 @@
         /* --- LAYOUT PRINCIPAL --- */
         .updates-container {
             display: grid;
-            grid-template-columns: 1.5fr 1fr; /* <-- ANCHO DEL VIDEO DESTACADO REDUCIDO AQUÍ */
+            grid-template-columns: 2fr 1fr; /* Volvemos a la distribución de contenido */
             gap: 40px;
         }
 
@@ -195,6 +195,9 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             margin-bottom: 30px;
             border: 1px solid rgba(255,255,255,0.2);
+            /* NUEVAS REGLAS para reducir y centrar el video destacado */
+            max-width: 75%; 
+            margin: 0 auto 30px auto; 
         }
         
         .video-thumb-large {
@@ -309,6 +312,8 @@
             header { flex-direction: column; }
             header nav { margin: 15px 0; }
             section { padding: 4rem 5%; }
+            /* Asegurar que el video destacado se vea bien en móvil */
+            .featured-video-card { max-width: 100%; margin: 0 0 30px 0; }
         }
     </style>
 </head>
@@ -351,7 +356,7 @@
                         <iframe src="https://www.youtube.com/embed/5QnT7rXV6u0" title="YouTube video" allowfullscreen></iframe>
                     </div>
                     <div class="featured-info">
-                        <h4>Actualización de Obras (Vídeo Destacado)</h4>
+                        <h4>Actualización de Obras (Vuelo de Drone Semanal)</h4>
                         <p>El último resumen con los avances más importantes de la semana.</p>
                     </div>
                 </div>
@@ -366,7 +371,7 @@
                             <iframe src="https://www.youtube.com/embed/BrJIww18ewI?start=45" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Video Semanal Reciente</h5>
+                            <h5>Demolición de Gol Sur y primeras cimentaciones</h5>
                             <span>Hace 1 semana</span>
                         </div>
                     </div>
@@ -375,7 +380,7 @@
                             <iframe src="https://www.youtube.com/embed/5hgzTRmeR58?start=733" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Video Semanal Anterior</h5>
+                            <h5>Visita al Terreno y replanteo de estructuras</h5>
                             <span>Hace 2 semanas</span>
                         </div>
                     </div>
@@ -384,7 +389,7 @@
                             <iframe src="https://www.youtube.com/embed/v3aPiZtDz2Y" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Video Semanal</h5>
+                            <h5>La Romareda por última vez | Despedida</h5>
                             <span>Hace 3 semanas</span>
                         </div>
                     </div>
@@ -393,7 +398,7 @@
                             <iframe src="https://www.youtube.com/embed/d9_DRABvohc?start=831" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Video Semanal Antiguo</h5>
+                            <h5>Reunión de Patronato y Plan de Obras 2024</h5>
                             <span>Hace 4 semanas</span>
                         </div>
                     </div>
