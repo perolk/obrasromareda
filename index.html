@@ -183,17 +183,18 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
+            /* CLAVE: Asegura la alineación superior de las dos columnas */
             align-items: start; 
         }
 
-        /* --- VIDEO STYLES (Alineación de altura) --- */
+        /* --- VIDEO STYLES --- */
         .weekly-videos {
             display: flex;
             flex-direction: column;
             height: 100%; 
         }
         
-        /* ALINEACIÓN CLAVE: Mismo espacio de 25px antes de la tarjeta */
+        /* ALINEACIÓN CLAVE: Mismo espacio de 25px antes de la tarjeta en ambas columnas */
         .weekly-videos h3 { 
             font-size: 1.5rem; 
             margin-bottom: 25px; 
@@ -252,14 +253,44 @@
 
         .video-scroll-container::-webkit-scrollbar { height: 0; }
 
-        /* --- TWITTER CARD --- */
+        .mini-video-card {
+            width: 100%; 
+            background: var(--card-glass);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .mini-video-card:hover { transform: translateY(-5px); }
+
+        .mini-thumb {
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+        }
+        .mini-thumb iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; pointer-events: none; 
+        }
+
+        .mini-info { 
+            padding: 15px; 
+            flex-grow: 1; 
+        }
+        .mini-info h5 { font-size: 1rem; color: var(--zaragoza-blue); margin-bottom: 5px; line-height: 1.3; height: 3em; overflow: hidden;}
+        .mini-info span { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* --- TWITTER CARD ESTÁTICA --- */
         .daily-summary {
             height: 100%;
             display: flex;
             flex-direction: column;
         }
         .twitter-header {
-            margin-bottom: 25px; 
+            margin-bottom: 25px; /* CLAVE: Mismo margen que el h3 de vídeo */
         }
         .twitter-header h3 { 
             font-size: 1.5rem; 
@@ -267,7 +298,6 @@
             margin-bottom: 0; 
         }
         
-        /* ESTILO PARA CONTENER EL WIDGET DE TWITTER (Línea de tiempo) */
         .twitter-static-card {
             background: var(--card-glass); 
             border-radius: 20px; 
@@ -276,15 +306,21 @@
             backdrop-filter: blur(10px);
             flex-grow: 1; 
             z-index: 10;
-            padding: 0; /* Quitamos el padding aquí para dejar que el widget de Twitter lo maneje */
-            /* IMPORTANTE: El overflow:hidden evita que el scroll interno del widget de Twitter se desborde */
         }
-
-        /* Intentamos hacer el iframe de Twitter transparente (generalmente no funciona) */
-        .twitter-static-card iframe {
-            background-color: transparent !important;
+        .twitter-static-card a { 
+            display: block; 
+            padding: 30px; /* Restauramos el padding para el diseño original */
+            text-decoration: none; 
+            color: inherit; 
+            height: 100%; 
         }
-
+        
+        /* Estilos del contenido del tweet estático */
+        .tweet-header-info { display: flex; align-items: center; margin-bottom: 20px; }
+        .profile-pic { width: 50px; height: 50px; background: var(--zaragoza-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 700; }
+        .tweet-text { font-size: 1.1rem; margin-bottom: 20px; }
+        .tweet-image { width: 100%; height: 200px; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 20px; }
+        .tweet-actions { display: flex; gap: 30px; color: var(--text-muted); font-size: 0.9rem; }
 
         /* --- PROYECTO & HISTORIA --- */
         .project-gallery, .history-grid {
@@ -417,15 +453,33 @@
                 </div>
 
                 <div class="twitter-static-card">
-                    <a class="twitter-timeline" 
-                       href="https://twitter.com/ObrasRomareda?ref_src=twsrc%5Etfw" 
-                       data-tweet-limit="1" 
-                       data-chrome="nofooter noheader noborders transparent"
-                       data-width="100%"
-                       data-theme="light">
-                       Tweets por @ObrasRomareda
+                    <a href="https://x.com/ObrasRomareda/status/1991149291008651621?s=20" target="_blank">
+                        
+                        <div class="tweet-header-info">
+                            <div class="profile-pic">OR</div>
+                            <div>
+                                <div style="font-weight: bold;">Obras Romareda</div>
+                                <div style="font-size: 0.9rem; color: #666;">@ObrasRomareda · 30min</div>
+                            </div>
+                            <i class="fa-brands fa-x-twitter" style="margin-left: auto;"></i>
+                        </div>
+
+                        <p class="tweet-text">
+                            🚧 ¡Avance masivo! Se ha completado la cimentación de la grada oeste y empezamos con el izado de las primeras estructuras de hormigón. ¡Fuerza Romareda!
+                            <br><br>
+                            💙🤍 
+                            <span style="color: var(--zaragoza-blue)">#NuevaRomareda</span>
+                        </p>
+
+                        <div class="tweet-image" style="background-image: url('https://placehold.co/600x400/00529F/FFFFFF?text=IZADO+DE+ESTRUCTURAS');"></div>
+
+                        <div class="tweet-actions">
+                            <span><i class="far fa-comment"></i> 30</span>
+                            <span><i class="fas fa-retweet"></i> 80</span>
+                            <span><i class="far fa-heart"></i> 550</span>
+                        </div>
                     </a>
-                </div>
+                    </div>
             </div>
 
         </div>
@@ -485,7 +539,6 @@
         <p>Web no oficial. Imágenes propiedad de IDOM.</p>
     </footer>
 
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
