@@ -42,7 +42,7 @@
             line-height: 1.2;
         }
 
-        /* --- HEADER (AZUL OSCURO) --- */
+        /* --- HEADER --- */
         header {
             background: var(--zaragoza-blue);
             padding: 1rem 5%;
@@ -90,7 +90,7 @@
         }
         .social-header a:hover { transform: translateY(-3px); color: var(--zaragoza-light); }
 
-        /* --- HERO SECTION (PORTADA) --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 82, 159, 0.75), rgba(0, 0, 0, 0.7)), url('https://nuevaromareda.es/wp-content/uploads/2024/10/home-nueva-romareda-01-3.png');
@@ -138,13 +138,11 @@
         /* --- SECTIONS GENERAL --- */
         section { padding: 6rem 10%; }
 
-        /* FONDO AZUL SÓLIDO PARA LA SECCIÓN DE VIDEOS */
         #videos {
             background: var(--zaragoza-blue); 
             color: white; 
         }
 
-        /* Títulos en zona azul */
         #videos .section-title, #videos h3 { 
             color: white;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
@@ -171,15 +169,15 @@
         #proyecto .section-title, #historia .section-title { color: var(--zaragoza-blue); text-shadow: none; }
         #proyecto .section-title::after, #historia .section-title::after { background: var(--zaragoza-blue); }
 
-        /* --- LAYOUT GRID (VIDEOS + TWITTER) --- */
+        /* --- LAYOUT GRID --- */
         .updates-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            align-items: start; /* Alineación superior */
+            align-items: start;
         }
 
-        /* --- ESTILOS COLUMNA VIDEOS --- */
+        /* --- VIDEOS --- */
         .weekly-videos {
             display: flex;
             flex-direction: column;
@@ -216,7 +214,7 @@
         .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--zaragoza-blue); }
         .featured-info p { font-size: 1rem; color: var(--text-muted); }
 
-        /* HISTORIAL DE VIDEOS (3 COLUMNAS, SIN SCROLL) */
+        /* Historial Videos */
         .scroll-label {
             font-size: 1.1rem;
             color: white;
@@ -231,7 +229,7 @@
 
         .video-scroll-container {
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+            grid-template-columns: repeat(3, 1fr); 
             gap: 20px;
             padding-top: 10px; 
             box-sizing: border-box; 
@@ -259,22 +257,17 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; pointer-events: none; 
         }
 
-        .mini-info { 
-            padding: 15px; 
-            flex-grow: 1; 
-        }
+        .mini-info { padding: 15px; flex-grow: 1; }
         .mini-info h5 { font-size: 1rem; color: var(--zaragoza-blue); margin-bottom: 5px; line-height: 1.3; height: 3em; overflow: hidden;}
         .mini-info span { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* --- TWITTER CARD ESTÁTICA --- */
+        /* --- TWITTER CARD --- */
         .daily-summary {
             height: 100%;
             display: flex;
             flex-direction: column;
         }
-        .twitter-header {
-            margin-bottom: 25px; 
-        }
+        .twitter-header { margin-bottom: 25px; }
         .twitter-header h3 { 
             font-size: 1.5rem; 
             margin-top: 0; 
@@ -291,14 +284,9 @@
             z-index: 10;
         }
         .twitter-static-card a { 
-            display: block; 
-            padding: 30px; 
-            text-decoration: none; 
-            color: inherit; 
-            height: 100%; 
+            display: block; padding: 30px; text-decoration: none; color: inherit; height: 100%; 
         }
         
-        /* Estilos del contenido del tweet estático */
         .tweet-header-info { display: flex; align-items: center; margin-bottom: 20px; }
         .profile-pic { width: 50px; height: 50px; background: var(--zaragoza-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 700; }
         .tweet-text { font-size: 1.1rem; margin-bottom: 20px; }
@@ -307,13 +295,8 @@
 
         /* --- PROYECTO (PESTAÑAS) --- */
         .project-gallery {
-            display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-            gap: 25px;
-            /* Por defecto oculto, se maneja con JS */
-            display: none; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; display: none; 
         }
-        /* El primero (Renders) se muestra por defecto */
         #renders { display: grid; }
 
         .project-item {
@@ -325,23 +308,12 @@
         .project-item img { width: 100%; border-radius: 10px; }
         .caption { text-align: center; margin-top: 10px; color: var(--zaragoza-blue); font-weight: 700; font-size: 0.9rem;}
 
-        /* Estilos Botones Pestañas */
         .tab-button {
-            background: transparent;
-            border: 2px solid var(--zaragoza-blue);
-            color: var(--zaragoza-blue);
-            font-size: 1rem;
-            font-weight: 700;
-            padding: 10px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s;
+            background: transparent; border: 2px solid var(--zaragoza-blue); color: var(--zaragoza-blue);
+            font-size: 1rem; font-weight: 700; padding: 10px 30px; border-radius: 50px; cursor: pointer; transition: all 0.3s;
         }
         .tab-button:hover { background: rgba(0, 82, 159, 0.1); }
-        .tab-button.active {
-            background: var(--zaragoza-blue);
-            color: white;
-        }
+        .tab-button.active { background: var(--zaragoza-blue); color: white; }
 
         /* --- HISTORIA --- */
         .history-timeline { padding-left: 40px; position: relative; }
@@ -352,11 +324,86 @@
             display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;
             margin-top: 20px;
         }
+        
+        /* ESTILOS IMÁGENES HISTORIA CON EFECTO HOVER Y CURSOR */
         .history-grid img {
             width: 100%; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-            /* Asegura que todas las imágenes tengan la misma altura y se recorten bien */
-            height: 250px; 
-            object-fit: cover;
+            height: 250px; object-fit: cover;
+            cursor: pointer; /* Indica que es clicable */
+            transition: transform 0.3s, filter 0.3s;
+        }
+        .history-grid img:hover {
+            transform: scale(1.03);
+            filter: brightness(0.8); /* Oscurece un poco para indicar interacción */
+        }
+
+        /* --- ESTILOS DEL MODAL (LIGHTBOX) --- */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed; 
+            z-index: 2000; /* Encima de todo */
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); /* Fondo negro transparente */
+            backdrop-filter: blur(5px);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Imagen del Modal */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1000px;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            animation-name: zoom;
+            animation-duration: 0.3s;
+        }
+
+        /* Texto del Modal */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Botón Cerrar */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        .close:hover, .close:focus {
+            color: var(--zaragoza-light);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
         }
 
         /* --- FOOTER --- */
@@ -366,23 +413,16 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 850px) {
-            .updates-container { 
-                grid-template-columns: 1fr; 
-                align-items: flex-start; 
-            }
+            .updates-container { grid-template-columns: 1fr; align-items: flex-start; }
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.2rem; }
             header { flex-direction: column; }
             header nav { margin: 15px 0; }
             section { padding: 4rem 5%; }
-            
-            .video-scroll-container {
-                grid-template-columns: 1fr; /* 1 columna en móvil */
-            }
-            .mini-video-card {
-                max-width: 300px; 
-                margin: 0 auto; /* Centrado */
-            }
+            .video-scroll-container { grid-template-columns: 1fr; }
+            .mini-video-card { max-width: 300px; margin: 0 auto; }
+            /* Ajustes Modal Móvil */
+            .modal-content { width: 95%; }
         }
     </style>
 </head>
@@ -418,7 +458,6 @@
             <div class="weekly-videos">
                 <div class="featured-content-wrapper">
                     <h3>Vídeo Destacado</h3>
-                    
                     <div class="featured-video-card">
                         <div class="video-thumb-large">
                             <iframe src="https://www.youtube.com/embed/5QnT7rXV6u0" title="YouTube video" allowfullscreen></iframe>
@@ -434,7 +473,6 @@
                     <div class="scroll-label">
                         <i class="fas fa-history"></i> Historial de Vídeos
                     </div>
-                    
                     <div class="video-scroll-container">
                         <div class="mini-video-card">
                             <div class="mini-thumb">
@@ -471,7 +509,6 @@
                 <div class="twitter-header">
                     <h3>Última Hora (X)</h3>
                 </div>
-
                 <div class="twitter-static-card">
                     <a href="https://x.com/ObrasRomareda/status/1991149291008651621?s=20" target="_blank">
                         <div class="tweet-header-info">
@@ -482,15 +519,12 @@
                             </div>
                             <i class="fa-brands fa-x-twitter" style="margin-left: auto;"></i>
                         </div>
-
                         <p class="tweet-text">
                             Vamos a por la quinta grúa.
                             <br><br>
                             <span style="color: var(--zaragoza-blue)">#NuevaRomareda</span>
                         </p>
-
                         <div class="tweet-image" style="background-image: url('https://pbs.twimg.com/media/G6H7uWyWoAAVl2P?format=jpg&name=large');"></div>
-
                         <div class="tweet-actions">
                             <span><i class="far fa-comment"></i> 6</span>
                             <span><i class="fas fa-retweet"></i> 5</span>
@@ -499,7 +533,6 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -508,7 +541,6 @@
         <p style="text-align: center; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
             Planos, renders y detalles técnicos de la futura casa del Real Zaragoza.
         </p>
-        
         <div class="project-tabs" style="display:flex; justify-content:center; gap:20px; margin-bottom:30px;">
             <button class="tab-button active" onclick="openTab(event, 'renders')">Renders</button>
             <button class="tab-button" onclick="openTab(event, 'plantas')">Plantas y Alzados</button>
@@ -554,15 +586,29 @@
         <div class="history-timeline">
             <div class="history-item">
                 <h3>La Vieja Romareda (1957 - 2024)</h3>
-                <p>Recuerdos del estadio que nos vio crecer.</p>
+                <p>Recuerdos del estadio que nos vio crecer. Haz clic en las imágenes para ampliar.</p>
                 <div class="history-grid">
-                    <img src="https://statics-maker.llt-services.com/zar/images/2023/03/22/xlarge/89db9591-f362-4ba0-a080-0f445a8ef4a2.jpg" alt="Inauguración Romareda">
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Gol+Nayim" alt="Historia 2">
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Despedida" alt="Historia 3">
+                    <img src="https://statics-maker.llt-services.com/zar/images/2023/03/22/xlarge/89db9591-f362-4ba0-a080-0f445a8ef4a2.jpg" 
+                         alt="Inauguración de La Romareda en 1957" 
+                         onclick="openModal(this.src, this.alt)">
+                    
+                    <img src="https://placehold.co/400x300/EEE/00529F?text=Gol+Nayim" 
+                         alt="Gol de Nayim en la Recopa de 1995"
+                         onclick="openModal(this.src, this.alt)">
+                    
+                    <img src="https://placehold.co/400x300/EEE/00529F?text=Despedida" 
+                         alt="Último partido en la vieja Romareda"
+                         onclick="openModal(this.src, this.alt)">
                 </div>
             </div>
         </div>
     </section>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
 
     <footer>
         <div class="logo" style="margin-bottom: 20px; color:white;">@ObrasRomareda</div>
@@ -575,7 +621,7 @@
     </footer>
 
     <script>
-        // Función para las pestañas
+        // Lógica para las Pestañas
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
@@ -588,6 +634,21 @@
             }
             document.getElementById(tabName).style.display = "grid";
             evt.currentTarget.className += " active";
+        }
+
+        // Lógica para el Modal (Lightbox)
+        function openModal(src, alt) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            
+            modal.style.display = "flex"; // Usamos flex para centrar
+            modalImg.src = src;
+            captionText.innerHTML = alt;
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
         }
 
         // Smooth Scroll
