@@ -30,8 +30,7 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             overflow-x: hidden;
-            /* Degradado del fondo para COINCIDIR con el header */
-            background: linear-gradient(180deg, var(--zaragoza-blue) 0%, var(--bg-light) 60%, var(--bg-light) 100%);
+            background-color: var(--bg-light); 
             min-height: 100vh;
             line-height: 1.6;
         }
@@ -146,8 +145,17 @@
         /* --- SECTIONS GENERAL --- */
         section { padding: 6rem 10%; }
 
+        /* FONDO AZUL SÓLIDO PARA LA SECCIÓN DE VIDEOS */
+        #videos {
+            background: var(--zaragoza-blue); 
+            color: white; 
+        }
+
         /* TÍTULOS EN ZONA AZUL (VIDEOS) */
-        #videos .section-title, #videos h3 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        #videos .section-title, #videos h3 { 
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
         #videos .section-title::after { background: var(--zaragoza-light); }
 
         .section-title {
@@ -200,7 +208,7 @@
         }
 
         .featured-info { padding: 25px; }
-        .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; }
+        .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--zaragoza-blue); }
         .featured-info p { font-size: 1rem; color: var(--text-muted); }
 
         /* Scroll Horizontal */
@@ -340,11 +348,11 @@
                 
                 <div class="featured-video-card">
                     <div class="video-thumb-large">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/5QnT7rXV6u0" title="YouTube video" allowfullscreen></iframe>
                     </div>
                     <div class="featured-info">
-                        <h4>Resumen Semanal: La demolición avanza</h4>
-                        <p>En este episodio repasamos los grandes avances en la zona de Gol Sur y las preparaciones para la cimentación del nuevo fondo.</p>
+                        <h4>Actualización de Obras (Vídeo Destacado)</h4>
+                        <p>El último resumen con los avances más importantes de la semana.</p>
                     </div>
                 </div>
 
@@ -355,38 +363,38 @@
                 <div class="video-scroll-container">
                     <div class="mini-video-card">
                         <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
+                            <iframe src="https://www.youtube.com/embed/BrJIww18ewI?start=45" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Vuelo de Drone Sem 3</h5>
+                            <h5>Video Semanal Reciente</h5>
                             <span>Hace 1 semana</span>
                         </div>
                     </div>
                     <div class="mini-video-card">
                         <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
+                            <iframe src="https://www.youtube.com/embed/5hgzTRmeR58?start=733" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Inicio de Obras</h5>
+                            <h5>Video Semanal Anterior</h5>
                             <span>Hace 2 semanas</span>
                         </div>
                     </div>
                     <div class="mini-video-card">
                         <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
+                            <iframe src="https://www.youtube.com/embed/v3aPiZtDz2Y" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Presentación IDOM</h5>
-                            <span>Hace 1 mes</span>
+                            <h5>Video Semanal</h5>
+                            <span>Hace 3 semanas</span>
                         </div>
                     </div>
                     <div class="mini-video-card">
                         <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
+                            <iframe src="https://www.youtube.com/embed/d9_DRABvohc?start=831" title="YouTube video"></iframe>
                         </div>
                         <div class="mini-info">
-                            <h5>Acto Primera Piedra</h5>
-                            <span>Hace 1 mes</span>
+                            <h5>Video Semanal Antiguo</h5>
+                            <span>Hace 4 semanas</span>
                         </div>
                     </div>
                 </div>
