@@ -183,21 +183,28 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            /* REGLA CRUCIAL: Asegura que los items ocupen la altura completa del contenedor grid */
-            align-items: stretch;
+            /* Mantiene la altura de las columnas sincronizada */
+            align-items: start; /* Asegura que las columnas se alineen desde arriba */
         }
 
-        /* --- VIDEO STYLES --- */
+        /* --- VIDEO STYLES (Alineación de altura) --- */
         .weekly-videos {
             display: flex;
             flex-direction: column;
-            /* Permitir que el contenedor de vídeos ocupe toda la altura disponible */
             height: 100%; 
-            /* Empuja el carrusel de videos al fondo, creando el espacio necesario */
-            justify-content: space-between; 
+        }
+        
+        /* ALINEACIÓN CLAVE: Asegura que el título y la tarjeta tengan un margen predecible */
+        .weekly-videos h3 { 
+            font-size: 1.5rem; 
+            margin-bottom: 25px; /* Margen uniforme de 25px antes de la tarjeta */
+            margin-top: 0; 
         }
 
-        .weekly-videos h3 { font-size: 1.5rem; margin-bottom: 20px;}
+        /* Contenedor del video destacado para control de flex */
+        .featured-content-wrapper {
+            flex-grow: 0; 
+        }
 
         .featured-video-card {
             background: var(--card-glass);
@@ -205,9 +212,8 @@
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
             border: 1px solid rgba(255,255,255,0.2);
-            /* REGLAS para reducir y centrar el video destacado */
-            max-width: 75%; 
-            margin: 0 auto 30px auto; 
+            max-width: 100%; 
+            margin: 0; 
         }
         
         .video-thumb-large {
@@ -224,7 +230,7 @@
         .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--zaragoza-blue); }
         .featured-info p { font-size: 1rem; color: var(--text-muted); }
 
-        /* Scroll Horizontal */
+        /* Historial de Vídeos - SIN SCROLL LATERAL (3 Columnas) */
         .scroll-label {
             font-size: 1.1rem;
             color: white;
@@ -233,37 +239,39 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-top: 30px; 
         }
         .scroll-label i { color: var(--zaragoza-light); }
 
         .video-scroll-container {
-            display: flex;
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
             gap: 20px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--zaragoza-light) rgba(255,255,255,0.1);
+            overflow-x: hidden; 
+            padding-top: 10px; 
+            box-sizing: border-box; 
         }
 
-        .video-scroll-container::-webkit-scrollbar { height: 8px; }
-        .video-scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 4px; }
-        .video-scroll-container::-webkit-scrollbar-thumb { background: var(--zaragoza-light); border-radius: 4px; }
+        /* Ocultar barra de desplazamiento */
+        .video-scroll-container::-webkit-scrollbar { height: 0; }
 
+        /* --- MINI VIDEO CONSISTENCY --- */
         .mini-video-card {
-            min-width: 260px;
+            width: 100%; 
             background: var(--card-glass);
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
             flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
         }
         .mini-video-card:hover { transform: translateY(-5px); }
 
         .mini-thumb {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
         }
@@ -271,23 +279,42 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; pointer-events: none; 
         }
 
-        .mini-info { padding: 15px; }
-        .mini-info h5 { font-size: 1rem; color: var(--zaragoza-blue); margin-bottom: 5px; line-height: 1.3;}
+        .mini-info { 
+            padding: 15px; 
+            flex-grow: 1; 
+        }
+        .mini-info h5 { font-size: 1rem; color: var(--zaragoza-blue); margin-bottom: 5px; line-height: 1.3; height: 3em; overflow: hidden;}
         .mini-info span { font-size: 0.8rem; color: var(--text-muted); }
 
         /* --- TWITTER CARD --- */
+        .daily-summary {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
         .twitter-header {
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; color: white;
+            /* Eliminamos display: flex, el h3 ya no tiene que compartir espacio con el botón */
+            /* align-items: flex-start; */
+            margin-bottom: 25px; /* CLAVE: Mismo margen que el h3 en weekly-videos */
         }
-        .twitter-header h3 { font-size: 1.5rem; }
-        .twitter-header a {
-            color: white; text-decoration: none; font-size: 0.9rem; background: rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 25px; transition: 0.3s;
+        /* ALINEACIÓN CLAVE: Asegura que el título tenga el mismo estilo */
+        .twitter-header h3 { 
+            font-size: 1.5rem; 
+            margin-top: 0; 
+            margin-bottom: 0; /* El margen lo gestiona el padre (.twitter-header) */
         }
-
+        
+        /* ELIMINAMOS EL CSS DEL BOTÓN QUE YA NO EXISTE */
+        
         .twitter-static-card {
             background: var(--card-glass); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); backdrop-filter: blur(10px);
+            flex-grow: 1; 
+            z-index: 10;
         }
-        .twitter-static-card a { display: block; padding: 30px; text-decoration: none; color: inherit; }
+        .twitter-static-card a { 
+            display: block; padding: 30px; text-decoration: none; color: inherit; 
+            height: 100%; 
+        }
         
         .tweet-header-info { display: flex; align-items: center; margin-bottom: 20px; }
         .profile-pic { width: 50px; height: 50px; background: var(--zaragoza-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 700; }
@@ -319,13 +346,21 @@
         @media (max-width: 850px) {
             .updates-container { 
                 grid-template-columns: 1fr; 
-                align-items: flex-start; /* Desactivar la alineación para móvil */
+                align-items: flex-start; 
             }
             .hero h1 { font-size: 3rem; }
             header { flex-direction: column; }
             header nav { margin: 15px 0; }
             section { padding: 4rem 5%; }
             .featured-video-card { max-width: 100%; margin: 0 0 30px 0; }
+            .video-scroll-container {
+                grid-template-columns: 1fr; 
+            }
+            .video-scroll-container .mini-video-card {
+                max-width: 300px; 
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
@@ -361,7 +396,8 @@
         <div class="updates-container">
             
             <div class="weekly-videos">
-                <div> <h3>Vídeo Destacado</h3>
+                <div class="featured-content-wrapper">
+                    <h3>Vídeo Destacado</h3>
                     
                     <div class="featured-video-card">
                         <div class="video-thumb-large">
@@ -374,7 +410,8 @@
                     </div>
                 </div>
 
-                <div> <div class="scroll-label">
+                <div> 
+                    <div class="scroll-label">
                         <i class="fas fa-history"></i> Historial de Vídeos
                     </div>
                     
@@ -406,15 +443,6 @@
                                 <span>Hace 3 semanas</span>
                             </div>
                         </div>
-                        <div class="mini-video-card">
-                            <div class="mini-thumb">
-                                <iframe src="https://www.youtube.com/embed/d9_DRABvohc?start=831" title="YouTube video"></iframe>
-                            </div>
-                            <div class="mini-info">
-                                <h5>Reunión de Patronato y Plan de Obras 2024</h5>
-                                <span>Hace 4 semanas</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -422,8 +450,7 @@
             <div class="daily-summary">
                 <div class="twitter-header">
                     <h3>Última Hora (X)</h3>
-                    <a href="https://twitter.com/ObrasRomareda" target="_blank">Ver todo <i class="fas fa-arrow-right"></i></a>
-                </div>
+                    </div>
 
                 <div class="twitter-static-card">
                     <a href="https://twitter.com/ObrasRomareda" target="_blank">
