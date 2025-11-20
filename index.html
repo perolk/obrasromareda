@@ -259,7 +259,7 @@
             flex-direction: column;
         }
         .twitter-header {
-            margin-bottom: 25px; /* CLAVE: Mismo margen que el h3 de vídeo */
+            margin-bottom: 25px; 
         }
         .twitter-header h3 { 
             font-size: 1.5rem; 
@@ -267,7 +267,7 @@
             margin-bottom: 0; 
         }
         
-        /* ESTILO PARA CONTENER EL WIDGET DE TWITTER */
+        /* ESTILO PARA CONTENER EL WIDGET DE TWITTER (Línea de tiempo) */
         .twitter-static-card {
             background: var(--card-glass); 
             border-radius: 20px; 
@@ -276,19 +276,13 @@
             backdrop-filter: blur(10px);
             flex-grow: 1; 
             z-index: 10;
-            /* Intentamos camuflar el tweet incrustado */
-            padding: 10px; /* Reducimos el padding para que el tweet quepa mejor */
-        }
-        
-        /* Ocultar el pie de página del tweet incrustado para un look más limpio */
-        .twitter-tweet-rendered {
-            /* Intentar aplicar estilos para que el tweet incrustado se integre */
-            max-width: 100%;
+            padding: 0; /* Quitamos el padding aquí para dejar que el widget de Twitter lo maneje */
+            /* IMPORTANTE: El overflow:hidden evita que el scroll interno del widget de Twitter se desborde */
         }
 
-        /* Reglas CSS de la versión estática anterior (mantener por si acaso) */
-        .tweet-header-info, .tweet-text, .tweet-image, .tweet-actions {
-            display: none; /* Ocultamos el contenido estático que será reemplazado */
+        /* Intentamos hacer el iframe de Twitter transparente (generalmente no funciona) */
+        .twitter-static-card iframe {
+            background-color: transparent !important;
         }
 
 
@@ -423,18 +417,14 @@
                 </div>
 
                 <div class="twitter-static-card">
-                    <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
-                        <p lang="es" dir="ltr">🏗️ ¡El ritmo es inmejorable! Esta semana hemos retirado los escombros de Gol Sur y la maquinaria pesada ha entrado para la cimentación. 💙🤍 <a href="https://twitter.com/hashtag/NuevaRomareda?src=hash&amp;ref_src=twsrc%5Etfw">#NuevaRomareda</a> <a href="https://t.co/f8xYz4v0Hj">pic.twitter.com/f8xYz4v0Hj</a></p>
-                        &mdash; Obras Romareda (@ObrasRomareda) <a href="https://twitter.com/ObrasRomareda/status/183200000000000000">18 Septiembre 2024</a>
-                    </blockquote>
-                    
-                    <a href="https://twitter.com/ObrasRomareda" target="_blank" style="display:none;">
-                        <div class="tweet-header-info"></div>
-                        <p class="tweet-text"></p>
-                        <div class="tweet-image"></div>
-                        <div class="tweet-actions"></div>
+                    <a class="twitter-timeline" 
+                       href="https://twitter.com/ObrasRomareda?ref_src=twsrc%5Etfw" 
+                       data-tweet-limit="1" 
+                       data-chrome="nofooter noheader noborders transparent"
+                       data-width="100%"
+                       data-theme="light">
+                       Tweets por @ObrasRomareda
                     </a>
-                    
                 </div>
             </div>
 
