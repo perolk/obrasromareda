@@ -30,7 +30,6 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             overflow-x: hidden;
-            /* DEGRADADO ZARAGOZA: Azul -> Blanco */
             background: linear-gradient(180deg, var(--zaragoza-blue) 0%, var(--bg-light) 60%, var(--bg-light) 100%);
             min-height: 100vh;
             line-height: 1.6;
@@ -58,13 +57,19 @@
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* --- ESTILO LOGO (@ObrasRomareda) --- */
         .logo {
-            font-weight: 900;
-            font-size: 1.6rem;
+            font-family: 'Calibri', 'Segoe UI', sans-serif;
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.8rem;
             color: var(--zaragoza-blue);
-            letter-spacing: -0.5px;
+            text-decoration: none;
         }
-        .logo span { color: var(--text-dark); }
+        .logo:hover {
+            color: var(--zaragoza-light);
+            transition: 0.3s;
+        }
 
         nav ul {
             display: flex;
@@ -83,6 +88,7 @@
 
         nav a:hover { color: var(--zaragoza-blue); }
 
+        /* ESTILOS DE LOGOS SOCIALES DERECHA */
         .social-header a {
             margin-left: 1.5rem;
             color: var(--text-dark);
@@ -91,10 +97,9 @@
         }
         .social-header a:hover { transform: translateY(-3px); color: var(--zaragoza-blue); }
 
-        /* --- HERO SECTION (PORTADA ACTUALIZADA) --- */
+        /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
-            /* NUEVA IMAGEN DE FONDO CON CAPA AZULADA */
             background: linear-gradient(rgba(0, 82, 159, 0.75), rgba(0, 0, 0, 0.7)), url('https://nuevaromareda.es/wp-content/uploads/2024/10/home-nueva-romareda-01-3.png');
             background-size: cover;
             background-position: center;
@@ -161,17 +166,16 @@
         #proyecto .section-title, #historia .section-title { color: var(--zaragoza-blue); text-shadow: none; }
         #proyecto .section-title::after, #historia .section-title::after { background: var(--zaragoza-blue); }
 
-        /* --- LAYOUT PRINCIPAL (Videos + Twitter) --- */
+        /* --- LAYOUT PRINCIPAL --- */
         .updates-container {
             display: grid;
             grid-template-columns: 2fr 1fr; 
             gap: 40px;
         }
 
-        /* --- ESTILOS DE VIDEO (Principal + Carrusel) --- */
+        /* --- VIDEO STYLES --- */
         .weekly-videos h3 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 1.5rem; margin-bottom: 20px;}
 
-        /* Video Destacado (Grande) */
         .featured-video-card {
             background: var(--card-glass);
             border-radius: 20px;
@@ -183,7 +187,7 @@
         
         .video-thumb-large {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
         }
@@ -195,7 +199,7 @@
         .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; }
         .featured-info p { font-size: 1rem; color: var(--text-muted); }
 
-        /* Scroll Horizontal (Carrusel) */
+        /* Scroll Horizontal */
         .scroll-label {
             font-size: 1.1rem;
             color: rgba(255,255,255,0.9);
@@ -211,7 +215,7 @@
             display: flex;
             gap: 20px;
             overflow-x: auto;
-            padding-bottom: 20px; /* Espacio para el scrollbar */
+            padding-bottom: 20px;
             scroll-behavior: smooth;
             scrollbar-width: thin;
             scrollbar-color: var(--zaragoza-light) rgba(255,255,255,0.1);
@@ -221,7 +225,6 @@
         .video-scroll-container::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 4px; }
         .video-scroll-container::-webkit-scrollbar-thumb { background: var(--zaragoza-light); border-radius: 4px; }
 
-        /* Mini Cards del Scroll */
         .mini-video-card {
             min-width: 260px;
             background: var(--card-glass);
@@ -231,7 +234,6 @@
             transition: transform 0.3s;
             flex-shrink: 0;
         }
-
         .mini-video-card:hover { transform: translateY(-5px); }
 
         .mini-thumb {
@@ -301,7 +303,8 @@
 <body>
 
     <header>
-        <div class="logo">OBRAS <span>ROMAREDA</span></div>
+        <div class="logo">@ObrasRomareda</div>
+        
         <nav>
             <ul>
                 <li><a href="#videos">Actualidad</a></li>
@@ -309,10 +312,11 @@
                 <li><a href="#historia">Historia</a></li>
             </ul>
         </nav>
+        
         <div class="social-header">
             <a href="https://twitter.com/ObrasRomareda" target="_blank"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com/ObrasRomareda" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@ObrasRomareda" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
     </header>
 
@@ -345,7 +349,6 @@
                 </div>
                 
                 <div class="video-scroll-container">
-                    
                     <div class="mini-video-card">
                         <div class="mini-thumb">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
@@ -355,7 +358,6 @@
                             <span>Hace 1 semana</span>
                         </div>
                     </div>
-
                     <div class="mini-video-card">
                         <div class="mini-thumb">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
@@ -365,7 +367,6 @@
                             <span>Hace 2 semanas</span>
                         </div>
                     </div>
-
                     <div class="mini-video-card">
                         <div class="mini-thumb">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
@@ -375,7 +376,6 @@
                             <span>Hace 1 mes</span>
                         </div>
                     </div>
-
                     <div class="mini-video-card">
                         <div class="mini-thumb">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video"></iframe>
@@ -385,9 +385,9 @@
                             <span>Hace 1 mes</span>
                         </div>
                     </div>
-
                 </div>
             </div>
+
             <div class="daily-summary">
                 <div class="twitter-header">
                     <h3>Última Hora (X)</h3>
@@ -469,12 +469,14 @@
     </section>
 
     <footer>
-        <div class="logo" style="margin-bottom: 20px; color:white;">OBRAS <span>ROMAREDA</span></div>
+        <div class="logo" style="margin-bottom: 20px; color:white;">@ObrasRomareda</div>
+        
         <div class="footer-links">
-            <a href="#"><i class="fab fa-x-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="https://twitter.com/ObrasRomareda" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://instagram.com/ObrasRomareda" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@ObrasRomareda" target="_blank"><i class="fab fa-youtube"></i></a>
         </div>
+        
         <p>Web no oficial. Imágenes propiedad de IDOM.</p>
     </footer>
 
