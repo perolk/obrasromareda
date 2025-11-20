@@ -181,11 +181,22 @@
         /* --- LAYOUT PRINCIPAL --- */
         .updates-container {
             display: grid;
-            grid-template-columns: 2fr 1fr; /* Volvemos a la distribución de contenido */
+            grid-template-columns: 2fr 1fr;
             gap: 40px;
+            /* REGLA CRUCIAL: Asegura que los items ocupen la altura completa del contenedor grid */
+            align-items: stretch;
         }
 
         /* --- VIDEO STYLES --- */
+        .weekly-videos {
+            display: flex;
+            flex-direction: column;
+            /* Permitir que el contenedor de vídeos ocupe toda la altura disponible */
+            height: 100%; 
+            /* Empuja el carrusel de videos al fondo, creando el espacio necesario */
+            justify-content: space-between; 
+        }
+
         .weekly-videos h3 { font-size: 1.5rem; margin-bottom: 20px;}
 
         .featured-video-card {
@@ -193,9 +204,8 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
             border: 1px solid rgba(255,255,255,0.2);
-            /* NUEVAS REGLAS para reducir y centrar el video destacado */
+            /* REGLAS para reducir y centrar el video destacado */
             max-width: 75%; 
             margin: 0 auto 30px auto; 
         }
@@ -307,12 +317,14 @@
 
         /* --- RESPONSIVE --- */
         @media (max-width: 850px) {
-            .updates-container { grid-template-columns: 1fr; }
+            .updates-container { 
+                grid-template-columns: 1fr; 
+                align-items: flex-start; /* Desactivar la alineación para móvil */
+            }
             .hero h1 { font-size: 3rem; }
             header { flex-direction: column; }
             header nav { margin: 15px 0; }
             section { padding: 4rem 5%; }
-            /* Asegurar que el video destacado se vea bien en móvil */
             .featured-video-card { max-width: 100%; margin: 0 0 30px 0; }
         }
     </style>
@@ -349,57 +361,59 @@
         <div class="updates-container">
             
             <div class="weekly-videos">
-                <h3>Vídeo Destacado</h3>
-                
-                <div class="featured-video-card">
-                    <div class="video-thumb-large">
-                        <iframe src="https://www.youtube.com/embed/5QnT7rXV6u0" title="YouTube video" allowfullscreen></iframe>
-                    </div>
-                    <div class="featured-info">
-                        <h4>Actualización de Obras (Vuelo de Drone Semanal)</h4>
-                        <p>El último resumen con los avances más importantes de la semana.</p>
+                <div> <h3>Vídeo Destacado</h3>
+                    
+                    <div class="featured-video-card">
+                        <div class="video-thumb-large">
+                            <iframe src="https://www.youtube.com/embed/5QnT7rXV6u0" title="YouTube video" allowfullscreen></iframe>
+                        </div>
+                        <div class="featured-info">
+                            <h4>Actualización de Obras (Vuelo de Drone Semanal)</h4>
+                            <p>El último resumen con los avances más importantes de la semana.</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="scroll-label">
-                    <i class="fas fa-history"></i> Historial de Vídeos
-                </div>
-                
-                <div class="video-scroll-container">
-                    <div class="mini-video-card">
-                        <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/BrJIww18ewI?start=45" title="YouTube video"></iframe>
-                        </div>
-                        <div class="mini-info">
-                            <h5>Demolición de Gol Sur y primeras cimentaciones</h5>
-                            <span>Hace 1 semana</span>
-                        </div>
+                <div> <div class="scroll-label">
+                        <i class="fas fa-history"></i> Historial de Vídeos
                     </div>
-                    <div class="mini-video-card">
-                        <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/5hgzTRmeR58?start=733" title="YouTube video"></iframe>
+                    
+                    <div class="video-scroll-container">
+                        <div class="mini-video-card">
+                            <div class="mini-thumb">
+                                <iframe src="https://www.youtube.com/embed/BrJIww18ewI?start=45" title="YouTube video"></iframe>
+                            </div>
+                            <div class="mini-info">
+                                <h5>Demolición de Gol Sur y primeras cimentaciones</h5>
+                                <span>Hace 1 semana</span>
+                            </div>
                         </div>
-                        <div class="mini-info">
-                            <h5>Visita al Terreno y replanteo de estructuras</h5>
-                            <span>Hace 2 semanas</span>
+                        <div class="mini-video-card">
+                            <div class="mini-thumb">
+                                <iframe src="https://www.youtube.com/embed/5hgzTRmeR58?start=733" title="YouTube video"></iframe>
+                            </div>
+                            <div class="mini-info">
+                                <h5>Visita al Terreno y replanteo de estructuras</h5>
+                                <span>Hace 2 semanas</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mini-video-card">
-                        <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/v3aPiZtDz2Y" title="YouTube video"></iframe>
+                        <div class="mini-video-card">
+                            <div class="mini-thumb">
+                                <iframe src="https://www.youtube.com/embed/v3aPiZtDz2Y" title="YouTube video"></iframe>
+                            </div>
+                            <div class="mini-info">
+                                <h5>La Romareda por última vez | Despedida</h5>
+                                <span>Hace 3 semanas</span>
+                            </div>
                         </div>
-                        <div class="mini-info">
-                            <h5>La Romareda por última vez | Despedida</h5>
-                            <span>Hace 3 semanas</span>
-                        </div>
-                    </div>
-                    <div class="mini-video-card">
-                        <div class="mini-thumb">
-                            <iframe src="https://www.youtube.com/embed/d9_DRABvohc?start=831" title="YouTube video"></iframe>
-                        </div>
-                        <div class="mini-info">
-                            <h5>Reunión de Patronato y Plan de Obras 2024</h5>
-                            <span>Hace 4 semanas</span>
+                        <div class="mini-video-card">
+                            <div class="mini-thumb">
+                                <iframe src="https://www.youtube.com/embed/d9_DRABvohc?start=831" title="YouTube video"></iframe>
+                            </div>
+                            <div class="mini-info">
+                                <h5>Reunión de Patronato y Plan de Obras 2024</h5>
+                                <span>Hace 4 semanas</span>
+                            </div>
                         </div>
                     </div>
                 </div>
