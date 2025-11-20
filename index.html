@@ -103,7 +103,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            color: white; /* Asegura que el color base sea blanco */
+            color: white;
         }
 
         .hero h1 {
@@ -111,12 +111,12 @@
             margin-bottom: 1.5rem;
             text-shadow: 0 6px 20px rgba(0,0,0,0.4);
             letter-spacing: -1px;
-            color: white; /* Blanco puro explícito */
+            color: white;
         }
 
         .hero p {
             font-size: 1.6rem;
-            color: white; /* Cambio a blanco puro (antes tenía transparencia) */
+            color: white;
             max-width: 900px;
             margin-bottom: 3rem;
             font-weight: 300;
@@ -354,6 +354,9 @@
         }
         .history-grid img {
             width: 100%; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            /* Asegura que todas las imágenes tengan la misma altura y se recorten bien */
+            height: 250px; 
+            object-fit: cover;
         }
 
         /* --- FOOTER --- */
@@ -368,7 +371,7 @@
                 align-items: flex-start; 
             }
             .hero h1 { font-size: 3rem; }
-            .hero p { font-size: 1.2rem; } /* Ajuste tamaño texto hero en móvil */
+            .hero p { font-size: 1.2rem; }
             header { flex-direction: column; }
             header nav { margin: 15px 0; }
             section { padding: 4rem 5%; }
@@ -553,7 +556,7 @@
                 <h3>La Vieja Romareda (1957 - 2024)</h3>
                 <p>Recuerdos del estadio que nos vio crecer.</p>
                 <div class="history-grid">
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Inauguracion" alt="Historia 1">
+                    <img src="https://statics-maker.llt-services.com/zar/images/2023/03/22/xlarge/89db9591-f362-4ba0-a080-0f445a8ef4a2.jpg" alt="Inauguración Romareda">
                     <img src="https://placehold.co/400x300/EEE/00529F?text=Gol+Nayim" alt="Historia 2">
                     <img src="https://placehold.co/400x300/EEE/00529F?text=Despedida" alt="Historia 3">
                 </div>
