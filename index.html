@@ -183,8 +183,7 @@
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            /* Mantiene la altura de las columnas sincronizada */
-            align-items: start; /* Asegura que las columnas se alineen desde arriba */
+            align-items: start; 
         }
 
         /* --- VIDEO STYLES (Alineación de altura) --- */
@@ -194,14 +193,13 @@
             height: 100%; 
         }
         
-        /* ALINEACIÓN CLAVE: Asegura que el título y la tarjeta tengan un margen predecible */
+        /* ALINEACIÓN CLAVE: Mismo espacio de 25px antes de la tarjeta */
         .weekly-videos h3 { 
             font-size: 1.5rem; 
-            margin-bottom: 25px; /* Margen uniforme de 25px antes de la tarjeta */
+            margin-bottom: 25px; 
             margin-top: 0; 
         }
 
-        /* Contenedor del video destacado para control de flex */
         .featured-content-wrapper {
             flex-grow: 0; 
         }
@@ -230,7 +228,7 @@
         .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--zaragoza-blue); }
         .featured-info p { font-size: 1rem; color: var(--text-muted); }
 
-        /* Historial de Vídeos - SIN SCROLL LATERAL (3 Columnas) */
+        /* Historial de Vídeos - 3 Columnas */
         .scroll-label {
             font-size: 1.1rem;
             color: white;
@@ -252,39 +250,7 @@
             box-sizing: border-box; 
         }
 
-        /* Ocultar barra de desplazamiento */
         .video-scroll-container::-webkit-scrollbar { height: 0; }
-
-        /* --- MINI VIDEO CONSISTENCY --- */
-        .mini-video-card {
-            width: 100%; 
-            background: var(--card-glass);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        .mini-video-card:hover { transform: translateY(-5px); }
-
-        .mini-thumb {
-            position: relative;
-            padding-bottom: 56.25%; 
-            height: 0;
-            overflow: hidden;
-        }
-        .mini-thumb iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; pointer-events: none; 
-        }
-
-        .mini-info { 
-            padding: 15px; 
-            flex-grow: 1; 
-        }
-        .mini-info h5 { font-size: 1rem; color: var(--zaragoza-blue); margin-bottom: 5px; line-height: 1.3; height: 3em; overflow: hidden;}
-        .mini-info span { font-size: 0.8rem; color: var(--text-muted); }
 
         /* --- TWITTER CARD --- */
         .daily-summary {
@@ -293,34 +259,38 @@
             flex-direction: column;
         }
         .twitter-header {
-            /* Eliminamos display: flex, el h3 ya no tiene que compartir espacio con el botón */
-            /* align-items: flex-start; */
-            margin-bottom: 25px; /* CLAVE: Mismo margen que el h3 en weekly-videos */
+            margin-bottom: 25px; /* CLAVE: Mismo margen que el h3 de vídeo */
         }
-        /* ALINEACIÓN CLAVE: Asegura que el título tenga el mismo estilo */
         .twitter-header h3 { 
             font-size: 1.5rem; 
             margin-top: 0; 
-            margin-bottom: 0; /* El margen lo gestiona el padre (.twitter-header) */
+            margin-bottom: 0; 
         }
         
-        /* ELIMINAMOS EL CSS DEL BOTÓN QUE YA NO EXISTE */
-        
+        /* ESTILO PARA CONTENER EL WIDGET DE TWITTER */
         .twitter-static-card {
-            background: var(--card-glass); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); backdrop-filter: blur(10px);
+            background: var(--card-glass); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
+            backdrop-filter: blur(10px);
             flex-grow: 1; 
             z-index: 10;
-        }
-        .twitter-static-card a { 
-            display: block; padding: 30px; text-decoration: none; color: inherit; 
-            height: 100%; 
+            /* Intentamos camuflar el tweet incrustado */
+            padding: 10px; /* Reducimos el padding para que el tweet quepa mejor */
         }
         
-        .tweet-header-info { display: flex; align-items: center; margin-bottom: 20px; }
-        .profile-pic { width: 50px; height: 50px; background: var(--zaragoza-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 700; }
-        .tweet-text { font-size: 1.1rem; margin-bottom: 20px; }
-        .tweet-image { width: 100%; height: 200px; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 20px; }
-        .tweet-actions { display: flex; gap: 30px; color: var(--text-muted); font-size: 0.9rem; }
+        /* Ocultar el pie de página del tweet incrustado para un look más limpio */
+        .twitter-tweet-rendered {
+            /* Intentar aplicar estilos para que el tweet incrustado se integre */
+            max-width: 100%;
+        }
+
+        /* Reglas CSS de la versión estática anterior (mantener por si acaso) */
+        .tweet-header-info, .tweet-text, .tweet-image, .tweet-actions {
+            display: none; /* Ocultamos el contenido estático que será reemplazado */
+        }
+
 
         /* --- PROYECTO & HISTORIA --- */
         .project-gallery, .history-grid {
@@ -450,34 +420,21 @@
             <div class="daily-summary">
                 <div class="twitter-header">
                     <h3>Última Hora (X)</h3>
-                    </div>
+                </div>
 
                 <div class="twitter-static-card">
-                    <a href="https://twitter.com/ObrasRomareda" target="_blank">
-                        <div class="tweet-header-info">
-                            <div class="profile-pic">OR</div>
-                            <div>
-                                <div style="font-weight: bold;">Obras Romareda</div>
-                                <div style="font-size: 0.9rem; color: #666;">@ObrasRomareda · 2h</div>
-                            </div>
-                            <i class="fa-brands fa-x-twitter" style="margin-left: auto;"></i>
-                        </div>
-
-                        <p class="tweet-text">
-                            🏗️ <b>¡Seguimos!</b> La retirada de escombros en Gol Sur ha finalizado hoy. La semana que viene entran las máquinas de cimentación.
-                            <br><br>
-                            El ritmo es inmejorable. 💙🤍 
-                            <span style="color: var(--zaragoza-blue)">#NuevaRomareda</span>
-                        </p>
-
-                        <div class="tweet-image" style="background-image: url('https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_exterior_dia_plaza-1920x1080.jpg');"></div>
-
-                        <div class="tweet-actions">
-                            <span><i class="far fa-comment"></i> 12</span>
-                            <span><i class="fas fa-retweet"></i> 45</span>
-                            <span><i class="far fa-heart"></i> 289</span>
-                        </div>
+                    <blockquote class="twitter-tweet" data-dnt="true" data-theme="light">
+                        <p lang="es" dir="ltr">🏗️ ¡El ritmo es inmejorable! Esta semana hemos retirado los escombros de Gol Sur y la maquinaria pesada ha entrado para la cimentación. 💙🤍 <a href="https://twitter.com/hashtag/NuevaRomareda?src=hash&amp;ref_src=twsrc%5Etfw">#NuevaRomareda</a> <a href="https://t.co/f8xYz4v0Hj">pic.twitter.com/f8xYz4v0Hj</a></p>
+                        &mdash; Obras Romareda (@ObrasRomareda) <a href="https://twitter.com/ObrasRomareda/status/183200000000000000">18 Septiembre 2024</a>
+                    </blockquote>
+                    
+                    <a href="https://twitter.com/ObrasRomareda" target="_blank" style="display:none;">
+                        <div class="tweet-header-info"></div>
+                        <p class="tweet-text"></p>
+                        <div class="tweet-image"></div>
+                        <div class="tweet-actions"></div>
                     </a>
+                    
                 </div>
             </div>
 
@@ -538,6 +495,7 @@
         <p>Web no oficial. Imágenes propiedad de IDOM.</p>
     </footer>
 
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
