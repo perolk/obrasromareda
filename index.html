@@ -11,7 +11,7 @@
     <style>
         /* --- VARIABLES Y COLORES --- */
         :root {
-            --zaragoza-blue: #00529F; /* Azul oscuro corporativo */
+            --zaragoza-blue: #00529F;
             --zaragoza-light: #4DA9FF;
             --text-dark: #1a1a1a;
             --text-muted: #6b7280;
@@ -55,7 +55,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* --- ESTILO LOGO (@ObrasRomareda) - BLANCO --- */
         .logo {
             font-family: 'Calibri', 'Segoe UI', sans-serif;
             font-weight: 700;
@@ -63,11 +62,9 @@
             font-size: 1.8rem;
             color: white;
             text-decoration: none;
-        }
-        .logo:hover {
-            color: var(--zaragoza-light);
             transition: 0.3s;
         }
+        .logo:hover { color: var(--zaragoza-light); }
 
         nav ul {
             display: flex;
@@ -75,7 +72,6 @@
             list-style: none;
         }
 
-        /* LINKS DE NAVEGACIÓN - BLANCO */
         nav a {
             color: white;
             text-decoration: none;
@@ -84,10 +80,8 @@
             position: relative;
             transition: color 0.3s;
         }
-
         nav a:hover { color: var(--zaragoza-light); }
 
-        /* LOGOS SOCIALES - BLANCO */
         .social-header a {
             margin-left: 1.5rem;
             color: white;
@@ -115,8 +109,6 @@
         .hero h1 {
             font-size: 4.5rem;
             margin-bottom: 1.5rem;
-            color: white;
-            font-weight: 900;
             text-shadow: 0 6px 20px rgba(0,0,0,0.4);
             letter-spacing: -1px;
         }
@@ -151,7 +143,7 @@
             color: white; 
         }
 
-        /* TÍTULOS EN ZONA AZUL (VIDEOS) */
+        /* Títulos en zona azul */
         #videos .section-title, #videos h3 { 
             color: white;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1); 
@@ -178,31 +170,25 @@
         #proyecto .section-title, #historia .section-title { color: var(--zaragoza-blue); text-shadow: none; }
         #proyecto .section-title::after, #historia .section-title::after { background: var(--zaragoza-blue); }
 
-        /* --- LAYOUT PRINCIPAL --- */
+        /* --- LAYOUT GRID (VIDEOS + TWITTER) --- */
         .updates-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            /* CLAVE: Asegura la alineación superior de las dos columnas */
-            align-items: start; 
+            align-items: start; /* Alineación superior */
         }
 
-        /* --- VIDEO STYLES --- */
+        /* --- ESTILOS COLUMNA VIDEOS --- */
         .weekly-videos {
             display: flex;
             flex-direction: column;
             height: 100%; 
         }
         
-        /* ALINEACIÓN CLAVE: Mismo espacio de 25px antes de la tarjeta en ambas columnas */
         .weekly-videos h3 { 
             font-size: 1.5rem; 
             margin-bottom: 25px; 
             margin-top: 0; 
-        }
-
-        .featured-content-wrapper {
-            flex-grow: 0; 
         }
 
         .featured-video-card {
@@ -229,7 +215,7 @@
         .featured-info h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--zaragoza-blue); }
         .featured-info p { font-size: 1rem; color: var(--text-muted); }
 
-        /* Historial de Vídeos - 3 Columnas */
+        /* HISTORIAL DE VIDEOS (3 COLUMNAS, SIN SCROLL) */
         .scroll-label {
             font-size: 1.1rem;
             color: white;
@@ -244,14 +230,11 @@
 
         .video-scroll-container {
             display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
+            grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
             gap: 20px;
-            overflow-x: hidden; 
             padding-top: 10px; 
             box-sizing: border-box; 
         }
-
-        .video-scroll-container::-webkit-scrollbar { height: 0; }
 
         .mini-video-card {
             width: 100%; 
@@ -260,7 +243,6 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
-            flex-shrink: 0;
             display: flex;
             flex-direction: column;
         }
@@ -283,14 +265,14 @@
         .mini-info h5 { font-size: 1rem; color: var(--zaragoza-blue); margin-bottom: 5px; line-height: 1.3; height: 3em; overflow: hidden;}
         .mini-info span { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* --- TWITTER CARD DINÁMICA --- */
+        /* --- TWITTER CARD ESTÁTICA --- */
         .daily-summary {
             height: 100%;
             display: flex;
             flex-direction: column;
         }
         .twitter-header {
-            margin-bottom: 25px;
+            margin-bottom: 25px; 
         }
         .twitter-header h3 { 
             font-size: 1.5rem; 
@@ -298,94 +280,103 @@
             margin-bottom: 0; 
         }
         
-        /* Contenedor del widget para darle forma de tarjeta */
-        #twitter-feed-container {
-            background: white; 
+        .twitter-static-card {
+            background: var(--card-glass); 
             border-radius: 20px; 
+            overflow: hidden; 
             box-shadow: 0 15px 40px rgba(0,0,0,0.08); 
-            padding: 5px; /* Pequeño padding interno */
-            height: 740px; /* ALTURA CLAVE: ajusta si necesitas más o menos tweets */
-            overflow: hidden; /* Oculta cualquier scroll externo */
+            backdrop-filter: blur(10px);
+            flex-grow: 1; 
+            z-index: 10;
+        }
+        .twitter-static-card a { 
+            display: block; 
+            padding: 30px; 
+            text-decoration: none; 
+            color: inherit; 
+            height: 100%; 
         }
         
-        /* --- PROYECTO & HISTORIA --- */
-        .project-gallery, .history-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;
+        /* Estilos del contenido del tweet */
+        .tweet-header-info { display: flex; align-items: center; margin-bottom: 20px; }
+        .profile-pic { width: 50px; height: 50px; background: var(--zaragoza-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 700; }
+        .tweet-text { font-size: 1.1rem; margin-bottom: 20px; }
+        .tweet-image { width: 100%; height: 250px; background-size: cover; background-position: center; border-radius: 12px; margin-bottom: 20px; }
+        .tweet-actions { display: flex; gap: 30px; color: var(--text-muted); font-size: 0.9rem; }
+
+        /* --- PROYECTO (PESTAÑAS) --- */
+        .project-gallery {
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 25px;
+            /* Por defecto oculto, se maneja con JS */
+            display: none; 
         }
-        .project-item, .history-grid img {
-            border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        /* El primero (Renders) se muestra por defecto */
+        #renders { display: grid; }
+
+        .project-item {
+            background: var(--bg-light); 
+            padding: 15px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
         }
-        .project-item { background: var(--bg-light); padding: 15px; }
         .project-item img { width: 100%; border-radius: 10px; }
         .caption { text-align: center; margin-top: 10px; color: var(--zaragoza-blue); font-weight: 700; font-size: 0.9rem;}
 
+        /* Estilos Botones Pestañas */
+        .tab-button {
+            background: transparent;
+            border: 2px solid var(--zaragoza-blue);
+            color: var(--zaragoza-blue);
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 10px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .tab-button:hover { background: rgba(0, 82, 159, 0.1); }
+        .tab-button.active {
+            background: var(--zaragoza-blue);
+            color: white;
+        }
+
+        /* --- HISTORIA --- */
         .history-timeline { padding-left: 40px; position: relative; }
         .history-timeline::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--zaragoza-blue); }
         .history-item::before { content: ''; position: absolute; left: -10px; top: 5px; width: 20px; height: 20px; background: white; border: 4px solid var(--zaragoza-blue); border-radius: 50%; }
+        
+        .history-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px;
+            margin-top: 20px;
+        }
+        .history-grid img {
+            width: 100%; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
 
         /* --- FOOTER --- */
         footer { background: var(--zaragoza-blue); color: white; padding: 4rem 10%; text-align: center; border-top: 8px solid var(--zaragoza-light); }
         .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 20px; }
         .footer-links a { color: white; font-size: 1.5rem; }
 
-        /* --- RESPONSIVE OPTIMIZADO (max-width: 850px) --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 850px) {
-            /* 1. LAYOUT GENERAL Y HERO */
             .updates-container { 
                 grid-template-columns: 1fr; 
                 align-items: flex-start; 
             }
+            .hero h1 { font-size: 3rem; }
+            header { flex-direction: column; }
+            header nav { margin: 15px 0; }
+            section { padding: 4rem 5%; }
             
-            .hero h1 { 
-                font-size: 3rem; 
-            }
-            .hero p {
-                font-size: 1.2rem;
-            }
-            section { 
-                padding: 4rem 5%; 
-            }
-            
-            /* 2. HEADER: Se ajusta para que todo quepa en una columna */
-            header { 
-                flex-direction: column; 
-                padding: 1rem 5%;
-            }
-            header nav { 
-                margin: 15px 0; 
-            }
-            nav ul {
-                gap: 1.5rem; 
-                padding-left: 0;
-            }
-            .social-header {
-                margin-top: 10px;
-            }
-
-            /* 3. SECCIÓN DE VÍDEOS */
-            .featured-video-card { 
-                max-width: 100%; 
-                margin: 0 0 30px 0; 
-            }
-            
-            /* Los vídeos de historial se fuerzan a una columna centrada */
             .video-scroll-container {
-                grid-template-columns: 1fr; 
+                grid-template-columns: 1fr; /* 1 columna en móvil */
             }
-            .video-scroll-container .mini-video-card {
+            .mini-video-card {
                 max-width: 300px; 
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            /* Ajuste de altura del feed de Twitter/X para móvil */
-            #twitter-feed-container {
-                height: 500px; /* Más corto en móvil */
-            }
-
-            /* 4. GALERÍAS Y PROYECTOS */
-            .project-gallery, .history-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                margin: 0 auto; /* Centrado */
             }
         }
     </style>
@@ -394,7 +385,6 @@
 
     <header>
         <div class="logo">@ObrasRomareda</div>
-        
         <nav>
             <ul>
                 <li><a href="#videos">Actualidad</a></li>
@@ -402,7 +392,6 @@
                 <li><a href="#historia">Historia</a></li>
             </ul>
         </nav>
-        
         <div class="social-header">
             <a href="https://twitter.com/ObrasRomareda" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://instagram.com/ObrasRomareda" target="_blank"><i class="fa-brands fa-instagram"></i></a>
@@ -475,14 +464,35 @@
 
             <div class="daily-summary">
                 <div class="twitter-header">
-                    <h3>Última Hora (X) - Dinámico</h3>
+                    <h3>Última Hora (X)</h3>
                 </div>
 
-                <div id="twitter-feed-container">
-                    <a class="twitter-timeline" data-height="730" href="https://twitter.com/ObrasRomareda?ref_src=twsrc%5Etfw">Tweets by ObrasRomareda</a> 
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <div class="twitter-static-card">
+                    <a href="https://x.com/ObrasRomareda/status/1991149291008651621?s=20" target="_blank">
+                        <div class="tweet-header-info">
+                            <div class="profile-pic">OR</div>
+                            <div>
+                                <div style="font-weight: bold;">Obras Romareda</div>
+                                <div style="font-size: 0.9rem; color: #666;">@ObrasRomareda · 10min</div>
+                            </div>
+                            <i class="fa-brands fa-x-twitter" style="margin-left: auto;"></i>
+                        </div>
+
+                        <p class="tweet-text">
+                            Vamos a por la quinta grúa.
+                            <br><br>
+                            <span style="color: var(--zaragoza-blue)">#NuevaRomareda</span>
+                        </p>
+
+                        <div class="tweet-image" style="background-image: url('https://pbs.twimg.com/media/G6H7uWyWoAAVl2P?format=jpg&name=large');"></div>
+
+                        <div class="tweet-actions">
+                            <span><i class="far fa-comment"></i> 6</span>
+                            <span><i class="fas fa-retweet"></i> 5</span>
+                            <span><i class="far fa-heart"></i> 113</span>
+                        </div>
+                    </a>
                 </div>
-                
             </div>
 
         </div>
@@ -495,22 +505,41 @@
         </p>
         
         <div class="project-tabs" style="display:flex; justify-content:center; gap:20px; margin-bottom:30px;">
-            <button class="cta-btn" style="background:var(--zaragoza-blue); color:white; border:none; font-size:0.9rem; padding:10px 25px;">Renders</button>
-            <button class="cta-btn" style="background:transparent; border:2px solid var(--zaragoza-blue); color:var(--zaragoza-blue); font-size:0.9rem; padding:10px 25px;">Planos</button>
+            <button class="tab-button active" onclick="openTab(event, 'renders')">Renders</button>
+            <button class="tab-button" onclick="openTab(event, 'plantas')">Plantas y Alzados</button>
+            <button class="tab-button" onclick="openTab(event, 'secciones')">Secciones</button>
         </div>
 
-        <div class="project-gallery">
+        <div id="renders" class="project-gallery tab-content">
             <div class="project-item">
                 <img src="https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_exterior_dia_plaza-1920x1080.jpg" alt="Render">
                 <div class="caption">Plaza Eduardo Ibarra</div>
             </div>
             <div class="project-item">
+                <img src="https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_interior_noche-1920x1080.jpg" alt="Interior Noche">
+                <div class="caption">Vista Interior Noche</div>
+            </div>
+            <div class="project-item">
+                <img src="https://pbs.twimg.com/media/GLIp4cAWkAAjB8S?format=jpg&name=large" alt="Aérea">
+                <div class="caption">Vista Aérea General</div>
+            </div>
+        </div>
+
+        <div id="plantas" class="project-gallery tab-content">
+            <div class="project-item">
                 <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Planta+General" alt="Planta">
                 <div class="caption">Planta General</div>
             </div>
             <div class="project-item">
+                <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Distribucion" alt="Distribución">
+                <div class="caption">Distribución de Accesos</div>
+            </div>
+        </div>
+
+        <div id="secciones" class="project-gallery tab-content">
+            <div class="project-item">
                 <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Seccion+Grada" alt="Sección">
-                <div class="caption">Sección Grada</div>
+                <div class="caption">Sección Constructiva de Grada</div>
             </div>
         </div>
     </section>
@@ -521,10 +550,10 @@
             <div class="history-item">
                 <h3>La Vieja Romareda (1957 - 2024)</h3>
                 <p>Recuerdos del estadio que nos vio crecer.</p>
-                <div class="history-grid" style="margin-top:20px;">
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Inauguracion" alt="Historia 1" style="width:100%; border-radius:10px;">
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Gol+Nayim" alt="Historia 2" style="width:100%; border-radius:10px;">
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Despedida" alt="Historia 3" style="width:100%; border-radius:10px;">
+                <div class="history-grid">
+                    <img src="https://placehold.co/400x300/EEE/00529F?text=Inauguracion" alt="Historia 1">
+                    <img src="https://placehold.co/400x300/EEE/00529F?text=Gol+Nayim" alt="Historia 2">
+                    <img src="https://placehold.co/400x300/EEE/00529F?text=Despedida" alt="Historia 3">
                 </div>
             </div>
         </div>
@@ -532,17 +561,31 @@
 
     <footer>
         <div class="logo" style="margin-bottom: 20px; color:white;">@ObrasRomareda</div>
-        
         <div class="footer-links">
             <a href="https://twitter.com/ObrasRomareda" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://instagram.com/ObrasRomareda" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://youtube.com/@ObrasRomareda" target="_blank"><i class="fa-brands fa-youtube"></i></a>
         </div>
-        
         <p>Web no oficial. Imágenes propiedad de IDOM.</p>
     </footer>
 
     <script>
+        // Función para las pestañas
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "grid";
+            evt.currentTarget.className += " active";
+        }
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
