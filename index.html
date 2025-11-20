@@ -342,17 +342,47 @@
         .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 20px; }
         .footer-links a { color: white; font-size: 1.5rem; }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE OPTIMIZADO (max-width: 850px) --- */
         @media (max-width: 850px) {
+            /* 1. LAYOUT GENERAL Y HERO */
             .updates-container { 
                 grid-template-columns: 1fr; 
                 align-items: flex-start; 
             }
-            .hero h1 { font-size: 3rem; }
-            header { flex-direction: column; }
-            header nav { margin: 15px 0; }
-            section { padding: 4rem 5%; }
-            .featured-video-card { max-width: 100%; margin: 0 0 30px 0; }
+            
+            .hero h1 { 
+                font-size: 3rem; 
+            }
+            .hero p {
+                font-size: 1.2rem;
+            }
+            section { 
+                padding: 4rem 5%; 
+            }
+            
+            /* 2. HEADER: Se ajusta para que todo quepa en una columna */
+            header { 
+                flex-direction: column; 
+                padding: 1rem 5%;
+            }
+            header nav { 
+                margin: 15px 0; 
+            }
+            nav ul {
+                gap: 1.5rem; /* Reducimos el espacio entre enlaces */
+                padding-left: 0;
+            }
+            .social-header {
+                margin-top: 10px;
+            }
+
+            /* 3. SECCIÓN DE VÍDEOS */
+            .featured-video-card { 
+                max-width: 100%; 
+                margin: 0 0 30px 0; 
+            }
+            
+            /* Los vídeos de historial se fuerzan a una columna centrada */
             .video-scroll-container {
                 grid-template-columns: 1fr; 
             }
@@ -360,6 +390,12 @@
                 max-width: 300px; 
                 margin-left: auto;
                 margin-right: auto;
+            }
+
+            /* 4. GALERÍAS Y PROYECTOS */
+            .project-gallery, .history-grid {
+                /* Usamos un mínimo más pequeño para mejorar el uso del espacio horizontal */
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
         }
     </style>
@@ -459,24 +495,23 @@
                             <div class="profile-pic">OR</div>
                             <div>
                                 <div style="font-weight: bold;">Obras Romareda</div>
-                                <div style="font-size: 0.9rem; color: #666;">@ObrasRomareda · 30min</div>
+                                <div style="font-size: 0.9rem; color: #666;">@ObrasRomareda · 10min</div>
                             </div>
                             <i class="fa-brands fa-x-twitter" style="margin-left: auto;"></i>
                         </div>
 
                         <p class="tweet-text">
-                            🚧 ¡Avance masivo! Se ha completado la cimentación de la grada oeste y empezamos con el izado de las primeras estructuras de hormigón. ¡Fuerza Romareda!
+                            Vamos a por la quinta grúa.
                             <br><br>
-                            💙🤍 
                             <span style="color: var(--zaragoza-blue)">#NuevaRomareda</span>
                         </p>
 
-                        <div class="tweet-image" style="background-image: url('https://placehold.co/600x400/00529F/FFFFFF?text=IZADO+DE+ESTRUCTURAS');"></div>
+                        <div class="tweet-image" style="background-image: url('https://pbs.twimg.com/media/G6H7uWyWoAAVl2P?format=jpg&name=large');"></div>
 
                         <div class="tweet-actions">
-                            <span><i class="far fa-comment"></i> 30</span>
-                            <span><i class="fas fa-retweet"></i> 80</span>
-                            <span><i class="far fa-heart"></i> 550</span>
+                            <span><i class="far fa-comment"></i> 6</span>
+                            <span><i class="fas fa-retweet"></i> 5</span>
+                            <span><i class="far fa-heart"></i> 113</span>
                         </div>
                     </a>
                     </div>
