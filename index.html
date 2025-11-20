@@ -90,7 +90,7 @@
         }
         .social-header a:hover { transform: translateY(-3px); color: var(--zaragoza-light); }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (PORTADA) --- */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(0, 82, 159, 0.75), rgba(0, 0, 0, 0.7)), url('https://nuevaromareda.es/wp-content/uploads/2024/10/home-nueva-romareda-01-3.png');
@@ -103,7 +103,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            color: white;
+            color: white; /* Asegura que el color base sea blanco */
         }
 
         .hero h1 {
@@ -111,11 +111,12 @@
             margin-bottom: 1.5rem;
             text-shadow: 0 6px 20px rgba(0,0,0,0.4);
             letter-spacing: -1px;
+            color: white; /* Blanco puro explícito */
         }
 
         .hero p {
             font-size: 1.6rem;
-            color: rgba(255,255,255,0.9);
+            color: white; /* Cambio a blanco puro (antes tenía transparencia) */
             max-width: 900px;
             margin-bottom: 3rem;
             font-weight: 300;
@@ -297,7 +298,7 @@
             height: 100%; 
         }
         
-        /* Estilos del contenido del tweet */
+        /* Estilos del contenido del tweet estático */
         .tweet-header-info { display: flex; align-items: center; margin-bottom: 20px; }
         .profile-pic { width: 50px; height: 50px; background: var(--zaragoza-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-weight: 700; }
         .tweet-text { font-size: 1.1rem; margin-bottom: 20px; }
@@ -367,6 +368,7 @@
                 align-items: flex-start; 
             }
             .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; } /* Ajuste tamaño texto hero en móvil */
             header { flex-direction: column; }
             header nav { margin: 15px 0; }
             section { padding: 4rem 5%; }
@@ -401,7 +403,7 @@
 
     <section class="hero">
         <h1>El Futuro Comienza Hoy</h1>
-        <p>Seguimiento día a día de la construcción de la Nueva Romareda.</p>
+        <p>Sigue el proceso de construcción de la nueva Romareda</p>
         <a href="#videos" class="cta-btn">Ver Últimos Avances</a>
     </section>
 
