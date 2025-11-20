@@ -11,7 +11,7 @@
     <style>
         /* --- VARIABLES Y COLORES --- */
         :root {
-            --zaragoza-blue: #00529F;
+            --zaragoza-blue: #00529F; /* Azul oscuro corporativo */
             --zaragoza-light: #4DA9FF;
             --text-dark: #1a1a1a;
             --text-muted: #6b7280;
@@ -30,6 +30,7 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
             overflow-x: hidden;
+            /* El fondo del body ahora comienza con el mismo azul oscuro del header */
             background: linear-gradient(180deg, var(--zaragoza-blue) 0%, var(--bg-light) 60%, var(--bg-light) 100%);
             min-height: 100vh;
             line-height: 1.6;
@@ -42,9 +43,9 @@
             line-height: 1.2;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER (AZUL OSCURO) --- */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--zaragoza-blue); /* Fondo azul oscuro sólido */
             padding: 1rem 5%;
             position: fixed;
             width: 100%;
@@ -52,18 +53,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            /* Se elimina el filtro blur y borde para un color sólido */
         }
 
-        /* --- ESTILO LOGO (@ObrasRomareda) --- */
+        /* --- ESTILO LOGO (@ObrasRomareda) - BLANCO --- */
         .logo {
             font-family: 'Calibri', 'Segoe UI', sans-serif;
             font-weight: 700;
             font-style: italic;
             font-size: 1.8rem;
-            color: var(--zaragoza-blue);
+            color: white; /* Color blanco */
             text-decoration: none;
         }
         .logo:hover {
@@ -77,8 +77,9 @@
             list-style: none;
         }
 
+        /* LINKS DE NAVEGACIÓN - BLANCO */
         nav a {
-            color: var(--text-dark);
+            color: white; /* Color blanco */
             text-decoration: none;
             font-weight: 500;
             font-size: 1rem;
@@ -86,16 +87,16 @@
             transition: color 0.3s;
         }
 
-        nav a:hover { color: var(--zaragoza-blue); }
+        nav a:hover { color: var(--zaragoza-light); }
 
-        /* ESTILOS DE LOGOS SOCIALES DERECHA */
+        /* LOGOS SOCIALES - BLANCO */
         .social-header a {
             margin-left: 1.5rem;
-            color: var(--text-dark);
+            color: white; /* Color blanco */
             font-size: 1.3rem;
             transition: color 0.3s, transform 0.3s;
         }
-        .social-header a:hover { transform: translateY(-3px); color: var(--zaragoza-blue); }
+        .social-header a:hover { transform: translateY(-3px); color: var(--zaragoza-light); }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -146,6 +147,10 @@
         /* --- SECTIONS GENERAL --- */
         section { padding: 6rem 10%; }
 
+        /* TÍTULOS EN ZONA AZUL (VIDEOS) */
+        #videos .section-title, #videos h3 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        #videos .section-title::after { background: var(--zaragoza-light); }
+
         .section-title {
             font-size: 3rem;
             margin-bottom: 4rem;
@@ -174,7 +179,7 @@
         }
 
         /* --- VIDEO STYLES --- */
-        .weekly-videos h3 { color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.1); font-size: 1.5rem; margin-bottom: 20px;}
+        .weekly-videos h3 { font-size: 1.5rem; margin-bottom: 20px;}
 
         .featured-video-card {
             background: var(--card-glass);
@@ -202,7 +207,7 @@
         /* Scroll Horizontal */
         .scroll-label {
             font-size: 1.1rem;
-            color: rgba(255,255,255,0.9);
+            color: white; /* También a blanco */
             margin-bottom: 15px;
             font-weight: 500;
             display: flex;
