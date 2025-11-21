@@ -63,13 +63,23 @@
             color: white;
             text-decoration: none;
             transition: 0.3s;
+            z-index: 1002;
         }
         .logo:hover { color: var(--zaragoza-light); }
+
+        /* Navegación centrada absoluta */
+        header nav {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
         nav ul {
             display: flex;
             gap: 2.5rem;
             list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
         nav a {
@@ -82,6 +92,7 @@
         }
         nav a:hover { color: var(--zaragoza-light); }
 
+        .social-header { z-index: 1002; }
         .social-header a {
             margin-left: 1.5rem;
             color: white;
@@ -108,15 +119,15 @@
 
         .hero h1 {
             font-size: 4.5rem;
-            margin-bottom: 1rem; /* Reducido un poco para dejar espacio al contador */
+            margin-bottom: 1rem;
             text-shadow: 0 6px 20px rgba(0,0,0,0.4);
             letter-spacing: -1px;
             color: white;
         }
 
-        /* ESTILO DEL CONTADOR DE DÍAS */
+        /* Contador de días */
         .construction-counter {
-            background: rgba(0, 82, 159, 0.6); /* Azul Zaragoza transparente */
+            background: rgba(0, 82, 159, 0.6);
             backdrop-filter: blur(8px);
             padding: 8px 25px;
             border-radius: 50px;
@@ -189,7 +200,7 @@
         #proyecto .section-title, #historia .section-title { color: var(--zaragoza-blue); text-shadow: none; }
         #proyecto .section-title::after, #historia .section-title::after { background: var(--zaragoza-blue); }
 
-        /* --- LAYOUT GRID --- */
+        /* --- LAYOUT GRID (VIDEOS) --- */
         .updates-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -361,9 +372,7 @@
         .history-timeline::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--zaragoza-blue); }
         .history-item::before { content: ''; position: absolute; left: -10px; top: 5px; width: 20px; height: 20px; background: white; border: 4px solid var(--zaragoza-blue); border-radius: 50%; }
         
-        .history-item {
-            text-align: center;
-        }
+        .history-item { text-align: center; }
 
         .history-grid {
             display: grid; 
@@ -387,6 +396,13 @@
         .history-grid img:hover {
             transform: scale(1.03);
             filter: brightness(0.8);
+        }
+
+        .caption-history {
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* --- MODAL --- */
@@ -465,12 +481,15 @@
             .updates-container { grid-template-columns: 1fr; align-items: flex-start; }
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.2rem; }
+            
+            /* Header Móvil */
             header { flex-direction: column; }
             header nav { 
                 position: static; 
                 transform: none;
                 margin: 15px 0; 
             }
+            
             section { padding: 4rem 5%; }
             .video-scroll-container { grid-template-columns: 1fr; }
             .mini-video-card { max-width: 300px; margin: 0 auto; }
@@ -607,34 +626,34 @@
 
         <div id="renders" class="project-gallery tab-content">
             <div class="project-item">
-                <img src="https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_exterior_dia_plaza-1920x1080.jpg" alt="Render">
+                <img src="https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_exterior_dia_plaza-1920x1080.jpg" alt="Render Plaza">
                 <div class="caption">Plaza Eduardo Ibarra</div>
             </div>
             <div class="project-item">
-                <img src="https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_interior_noche-1920x1080.jpg" alt="Interior Noche">
+                <img src="https://www.idom.com/wp-content/uploads/2024/04/IDOM_Nueva-Romareda_render_interior_noche-1920x1080.jpg" alt="Render Interior">
                 <div class="caption">Vista Interior Noche</div>
             </div>
-            <div class="project-item">
-                <img src="https://pbs.twimg.com/media/GLIp4cAWkAAjB8S?format=jpg&name=large" alt="Aérea">
+             <div class="project-item">
+                <img src="https://pbs.twimg.com/media/GLIp4cAWkAAjB8S?format=jpg&name=large" alt="Render Aéreo">
                 <div class="caption">Vista Aérea General</div>
             </div>
         </div>
 
         <div id="plantas" class="project-gallery tab-content">
             <div class="project-item">
-                <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Planta+General" alt="Planta">
-                <div class="caption">Planta General</div>
+                <img src="https://pbs.twimg.com/media/GLIp6uUWQAAtwz_?format=jpg&name=large" alt="Planta General">
+                <div class="caption">Planta de Distribución</div>
             </div>
             <div class="project-item">
-                <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Distribucion" alt="Distribución">
-                <div class="caption">Distribución de Accesos</div>
+                <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Planta+Sotano" alt="Planta Sótano">
+                <div class="caption">Distribución Sótano -1</div>
             </div>
         </div>
 
         <div id="secciones" class="project-gallery tab-content">
             <div class="project-item">
-                <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Seccion+Grada" alt="Sección">
-                <div class="caption">Sección Constructiva de Grada</div>
+                <img src="https://placehold.co/600x400/EEEEEE/00529F/png?text=Seccion+Grada+Sur" alt="Sección Sur">
+                <div class="caption">Sección Constructiva Gol Sur</div>
             </div>
         </div>
     </section>
@@ -643,20 +662,51 @@
         <h2 class="section-title">Memoria Histórica</h2>
         <div class="history-timeline">
             <div class="history-item">
-                <h3>La Vieja Romareda (1957 - 2024)</h3>
-                <p>Recuerdos del estadio que nos vio crecer. Haz clic en las imágenes para ampliar.</p>
+                <h3>Un Estadio de Leyenda (1957 - 2024)</h3>
+                <p style="margin-bottom: 30px;">Más que hormigón, el corazón de Zaragoza. Haz clic en las imágenes para recordar.</p>
+                
                 <div class="history-grid">
-                    <img src="https://statics-maker.llt-services.com/zar/images/2023/03/22/xlarge/89db9591-f362-4ba0-a080-0f445a8ef4a2.jpg" 
-                         alt="Inauguración de La Romareda en 1957" 
-                         onclick="openModal(this.src, this.alt)">
-                    
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Gol+Nayim" 
-                         alt="Gol de Nayim en la Recopa de 1995"
-                         onclick="openModal(this.src, this.alt)">
-                    
-                    <img src="https://placehold.co/400x300/EEE/00529F?text=Despedida" 
-                         alt="Último partido en la vieja Romareda"
-                         onclick="openModal(this.src, this.alt)">
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 380px;">
+                        <img src="https://statics-maker.llt-services.com/zar/images/2023/03/22/xlarge/89db9591-f362-4ba0-a080-0f445a8ef4a2.jpg" 
+                             alt="Inauguración: 8 de Septiembre de 1957" 
+                             onclick="openModal(this.src, this.alt)">
+                        <p class="caption-history">1957: La Inauguración</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 380px;">
+                        <img src="https://as01.epimg.net/futbol/imagenes/2022/06/17/reportajes/1655460674_524206_1655460833_noticia_normal.jpg" 
+                             alt="Sede del Mundial España '82" 
+                             onclick="openModal(this.src, this.alt)">
+                        <p class="caption-history">1982: Sede Mundialista</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 380px;">
+                        <img src="https://www.heraldo.es/uploads/imagenes/2015/05/08/_C7F9301_3a720520.jpg" 
+                             alt="La Recopa en casa ante una Romareda llena" 
+                             onclick="openModal(this.src, this.alt)">
+                        <p class="caption-history">1995: La Recopa en Casa</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 380px;">
+                        <img src="https://www.heraldo.es/uploads/imagenes/2019/08/28/_P924010_f6390c26.jpg" 
+                             alt="Concierto Michael Jackson History Tour 1996" 
+                             onclick="openModal(this.src, this.alt)">
+                        <p class="caption-history">1996: Michael Jackson</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 380px;">
+                        <img src="https://phantom-marca.unidadeditorial.es/f520297447740d32295799ce6cc50392/resize/828/f/jpg/assets/multimedia/imagenes/2023/02/08/16758536782412.jpg" 
+                             alt="Noche mágica de Copa: 6-1 al Real Madrid" 
+                             onclick="openModal(this.src, this.alt)">
+                        <p class="caption-history">2006: Noche Mágica de Copa</p>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; max-width: 380px;">
+                        <img src="https://estaticos-cdn.prensaiberica.es/clip/bdc97986-08c6-4004-824b-0e60370f533d_16-9-aspect-ratio_default_0.jpg" 
+                             alt="El último partido antes de la demolición" 
+                             onclick="openModal(this.src, this.alt)">
+                        <p class="caption-history">2024: El Último Partido</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -679,18 +729,13 @@
     </footer>
 
     <script>
-        // --- CALCULO DE DÍAS DE OBRA ---
+        // Contador de días
         document.addEventListener('DOMContentLoaded', function() {
             const startDate = new Date('2024-07-08T00:00:00');
             const today = new Date();
-            today.setHours(0, 0, 0, 0); // Resetear horas para evitar errores de medio día
-            
-            // Diferencia en milisegundos
+            today.setHours(0, 0, 0, 0);
             const diffTime = Math.abs(today - startDate);
-            // Convertir a días (milisegundos * segundos * minutos * horas)
-            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1; // +1 para contar el día de inicio
-            
-            // Actualizar el contador en el HTML
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
             document.getElementById('days-count').textContent = diffDays;
         });
 
