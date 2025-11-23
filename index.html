@@ -93,11 +93,10 @@
         /* --- HERO SECTION --- */
         .hero {
             height: 100vh;
-            /* Por defecto en PC usamos fixed (parallax) */
             background: linear-gradient(rgba(0, 82, 159, 0.75), rgba(0, 0, 0, 0.7)), url('https://nuevaromareda.es/wp-content/uploads/2024/10/home-nueva-romareda-01-3.png');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; 
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -109,10 +108,18 @@
 
         .hero h1 {
             font-size: 4.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-shadow: 0 6px 20px rgba(0,0,0,0.4);
             letter-spacing: -1px;
             color: white;
+        }
+
+        .hero p {
+            font-size: 1.6rem;
+            color: white;
+            max-width: 900px;
+            margin-bottom: 3rem;
+            font-weight: 300;
         }
 
         .construction-counter {
@@ -132,14 +139,6 @@
             color: var(--zaragoza-light);
             font-size: 1.3rem;
             margin-right: 5px;
-        }
-
-        .hero p {
-            font-size: 1.6rem;
-            color: white;
-            max-width: 900px;
-            margin-bottom: 3rem;
-            font-weight: 300;
         }
 
         .cta-btn {
@@ -458,34 +457,43 @@
         .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 20px; }
         .footer-links a { color: white; font-size: 1.5rem; }
 
-        /* --- RESPONSIVE (INCLUYENDO FIX IPAD) --- */
-        /* Aumentamos el breakpoint para incluir iPads (1024px) */
+        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            /* FIX IPAD: Desactivar parallax para evitar zoom erróneo en la foto */
-            .hero {
-                background-attachment: scroll;
-                background-position: center top;
-            }
-
-            /* Ajustes Layout Móvil */
+            .hero { background-attachment: scroll; }
             .updates-container { grid-template-columns: 1fr; align-items: flex-start; }
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.2rem; }
             
-            header { flex-direction: column; }
+            /* HEADER MÓVIL: AQUÍ ESTÁ EL ARREGLO */
+            header { 
+                flex-direction: column; 
+                align-items: center; /* Asegura centrado horizontal */
+            }
             header nav { 
-                position: static; /* Reseteamos el absoluto */
+                position: static; 
                 transform: none;
                 margin: 15px 0; 
             }
+            .social-header {
+                margin-top: 10px;
+                display: flex;
+                justify-content: center; /* Centra los iconos */
+                width: 100%;
+            }
+            .social-header a {
+                margin: 0 15px; /* Margen simétrico para centrar */
+            }
             
             section { padding: 4rem 5%; }
-            
-            /* Video y Grid en móvil */
             .video-scroll-container { grid-template-columns: 1fr; }
             .mini-video-card { max-width: 300px; margin: 0 auto; }
             .modal-content { width: 95%; }
             .history-timeline { padding-left: 25px; }
+            
+            .project-item, .history-grid img {
+                max-width: 100%;
+                flex-basis: 100%;
+            }
         }
     </style>
 </head>
@@ -741,7 +749,7 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            document.getElementById(tabName).style.display = "grid";
+            document.getElementById(tabName).style.display = "flex";
             evt.currentTarget.className += " active";
         }
 
