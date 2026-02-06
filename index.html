@@ -50,7 +50,7 @@
             width: 100%;
             z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Distribuye logo y redes a los extremos */
             align-items: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
@@ -63,8 +63,16 @@
             color: white;
             text-decoration: none;
             transition: 0.3s;
+            z-index: 10; /* Asegura que esté por encima si se solapa */
         }
         .logo:hover { color: var(--zaragoza-light); }
+
+        /* --- CORRECCIÓN DE CENTRADO DEL MENÚ --- */
+        nav {
+            position: absolute; /* Lo sacamos del flujo normal */
+            left: 50%;          /* Lo mandamos a la mitad de la pantalla */
+            transform: translateX(-50%); /* Lo centramos matemáticamente sobre su propio eje */
+        }
 
         nav ul {
             display: flex;
@@ -81,6 +89,10 @@
             transition: color 0.3s;
         }
         nav a:hover { color: var(--zaragoza-light); }
+
+        .social-header {
+            z-index: 10;
+        }
 
         .social-header a {
             margin-left: 1.5rem;
@@ -114,11 +126,13 @@
             color: white;
         }
 
+        /* --- CORRECCIÓN DE SEPARACIÓN --- */
         .hero p {
             font-size: 1.6rem;
             color: white;
             max-width: 900px;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem; /* Aumentado de 3rem a 5rem para separar el botón */
+            margin-top: 1rem;    /* Un poco de aire arriba también */
             font-weight: 300;
         }
 
@@ -175,6 +189,7 @@
             font-weight: 900;
             text-align: center;
             position: relative;
+            width: 100%; /* Asegura que ocupe todo el ancho para centrarse bien */
         }
         .section-title::after {
             content: '';
@@ -464,24 +479,24 @@
             .hero h1 { font-size: 3rem; }
             .hero p { font-size: 1.2rem; }
             
-            /* HEADER MÓVIL: AQUÍ ESTÁ EL ARREGLO */
+            /* Ajustes Header Móvil */
             header { 
                 flex-direction: column; 
-                align-items: center; /* Asegura centrado horizontal */
+                align-items: center; 
             }
-            header nav { 
-                position: static; 
+            nav {
+                position: static; /* En móvil quitamos la posición absoluta */
                 transform: none;
-                margin: 15px 0; 
+                margin: 15px 0;
             }
             .social-header {
                 margin-top: 10px;
                 display: flex;
-                justify-content: center; /* Centra los iconos */
+                justify-content: center;
                 width: 100%;
             }
             .social-header a {
-                margin: 0 15px; /* Margen simétrico para centrar */
+                margin: 0 15px;
             }
             
             section { padding: 4rem 5%; }
